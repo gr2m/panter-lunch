@@ -7,7 +7,8 @@ class EventController extends BaseController
     '.ratings': '$ratings'
   
   events:
-    'keyup .new input': 'new_shid'
+    'keyup tbody tr:last-child input' : 'new_user'
+    'keyup thead th:last-child input' : 'new_location'
   
   active: (params) ->
     if params.id is 'new'
@@ -25,7 +26,11 @@ class EventController extends BaseController
     @html require("views/event")(@)
     super
     
-  new_shid: ->
-    console.log 'new_shid'
+  new_user: ->
+    @$('tbody tr:last-child').after require("views/event/new_user")(@)
+    
+  new_location: ->
+    @$('thead th:last-child').after require("views/event/new_location")(@)
+    @$('tbody td:last-child').after require("views/event/new_rating")(@)
     
 module.exports = EventController

@@ -1,0 +1,20 @@
+<tr class="new user">
+  <th>
+    <input type="checkbox" name="users[new][is_active]" value="" class="user" />
+    <input type="text" name="users[new][email]" value="" class="user" placeholder="new" />
+  </th>
+
+  <% for location, i in @model.locations: %>
+  <td>
+    <select>
+      <option>-2</option>
+      <option>-1</option>
+      <option selected>±0</option>
+      <option>+1</option>
+      <option>+2</option>
+    </select>
+  </td>
+  <% end %>
+  
+  <%- require('views/event/new_rating')(this) %>
+</tr>
