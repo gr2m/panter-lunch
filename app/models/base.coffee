@@ -1,6 +1,6 @@
 Spine = require('spine')
 
-Spine.Model.host = "http://cors.local:9292/choice.local:3000"
+Spine.Model.host = "http://cors.io/panter-lunch.herokuapp.com"
 class Base extends Spine.Model
   
   @uuid: (len = 7) ->
