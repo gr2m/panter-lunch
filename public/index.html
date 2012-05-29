@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="vendor/modernizr-2.5.3.js" type="text/javascript" charset="utf-8"></script>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
+  <meta charset="utf-8">
+  
+  <title>choice.it</title>
+  
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="application.css" type="text/css" charset="utf-8">
+</head>
+<body>
+  
+  <div id="app"></div>
+  
+  <script src="application.js"></script>
+  <script>
+    jQuery = require("jqueryify");
+    if (!window.console) {
+      window.console = {
+        log  : function() {},
+        trace: function() {}
+      }
+    }
+  </script>
+  
+  <!-- vendor stuff -->
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  
+  
+  <!-- init app -->
+  <script>
+    var exports = this;
+    jQuery(function() {
+      var App = require("index");
+      exports.app = new App({el: $("#app")});
+    })
+  </script>
+</body>
+</html>
