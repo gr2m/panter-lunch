@@ -1,6 +1,7 @@
-Spine = require('spine')
+Base = require('models/base')
 
-class Event extends Spine.Model
+class Event extends Base
+  
   @configure 'Event',
     'name'
     'description'
@@ -8,5 +9,21 @@ class Event extends Spine.Model
     'users'
     'locations'
     'ratings'
+    
+  @extend Base.Ajax
+  
+  # defaults
+  users     : []
+  locations : []
+  ratings   : []
+  
+  constructor: ->
+    @uuid or= @constructor.uuid()
+    super
+    
+  _debounce_timeout: null
+  save_debounced: ->
+    window.clearTimeout @_debounce_timeout
+    @_debounce_timeout = window.setTimeout (=> @save()), 3000
   
 module.exports = Event

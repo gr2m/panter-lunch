@@ -1,6 +1,6 @@
-Spine = require('spine')
+Base = require('models/base')
 
-class Rating extends Spine.Model
+class Rating extends Base
   @configure 'Rating'
   
 module.exports = Rating

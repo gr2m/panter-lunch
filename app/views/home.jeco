@@ -1,14 +1,21 @@
-<header class="">
+<div class="home">
+
   <div class="inner">
     <h1>
       Choice.it
-      <small>some funky slogan here</small>
+      <small>Stop talking. Start eating.</small>
     </h1>
     
-    <p>Welcome blurb Welcome blurb Welcome blurb Welcome blurb Welcome blurb Welcome blurb </p>
+    <p class="welcome-blurb">
+      Tired of organizing the right place for lunch?
+      Choice it saves time and energy by having the right restaurant automatically
+      chosen based on your colleagues' taste. Completely free and no need to register.
+    </p>
     
     <p class="start">
-      <a href="/events/new" class="btn btn-primary btn-large">create new event</a>
+      <a href="/events/new" class="btn btn-primary btn-large">Start now</a>
+      <a href="/events/example">example</a>
     </p>
   </div>
-</header>
+
+</div><!-- /.well -->

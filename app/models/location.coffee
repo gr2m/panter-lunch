@@ -1,6 +1,6 @@
-Spine = require('spine')
+Base = require('models/base')
 
-class Location extends Spine.Model
+class Location extends Base
   @configure 'Location'
   
 module.exports = Location

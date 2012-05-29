@@ -1,6 +1,6 @@
-Spine = require('spine')
+BaseController = require('controllers/base')
 
-class Home extends Spine.Controller
+class Home extends BaseController
   
   active: =>
     @html require("views/home")(@)

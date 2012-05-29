@@ -5,6 +5,19 @@ html
   
 .stack > *:not(.active)
   display none
+  
+.home
+  text-align center
+  width 550px
+  margin 100px auto
+  
+  h1 
+    font-size 4em
+    
+  .welcome-blurb
+    font-size 1.8em
+    line-height 1.45em
+    margin 1em 0
 
 .ratings
   table
@@ -38,9 +51,10 @@ html
   .new
     border 0
     
-    select
+    select, input
       display none
       
-    input
+    input[type=text]
+      display inline
       opacity .5
     

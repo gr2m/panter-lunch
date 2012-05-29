@@ -1,6 +1,6 @@
-Spine = require('spine')
+Base = require('models/base')
 
-class User extends Spine.Model
+class User extends Base
   @configure 'User'
   
 module.exports = User

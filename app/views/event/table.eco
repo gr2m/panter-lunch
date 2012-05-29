@@ -1,0 +1,83 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th> <!-- corner --> </th>
+      
+      <% for location, i in @model.locations: %>
+      <th>
+        <span><input type="text" name="locations[<%- i %>][name]" value="<%- location.name %>" /></span>
+      </th>
+      <% end %>
+      
+      <th class="new">
+        <span><input type="text" name="locations[new][name]" value="" placeholder="new" /></span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <% for user, i in @model.users: %>
+    <tr>
+      <th>
+        <input type="checkbox" name="users[1][is_active]" value="1" <%- 'checked' if user.is_active %> />
+        <span><input type="text" name="users[<%- i %>][email]" value="<%- user.email %>" /></span>
+      </th>
+      <% for location, i in @model.locations: %>
+      <td>
+        <select>
+          <option>-2</option>
+          <option>-1</option>
+          <option selected>±0</option>
+          <option>+1</option>
+          <option>+2</option>
+        </select>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+    
+    <tr class="new">
+      <th>
+        <input type="checkbox" name="users[new][is_active]" value="" />
+        <input type="text" name="users[new][email]" value="gregor@martynus.net" />
+      </th>
+      <td>
+        <select>
+          <option>-2</option>
+          <option>-1</option>
+          <option selected>±0</option>
+          <option>+1</option>
+          <option>+2</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option>-2</option>
+          <option>-1</option>
+          <option selected>±0</option>
+          <option>+1</option>
+          <option>+2</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option>-2</option>
+          <option>-1</option>
+          <option selected>±0</option>
+          <option>+1</option>
+          <option>+2</option>
+        </select>
+      </td>
+      <td class="new">
+        <select>
+          <option>-2</option>
+          <option>-1</option>
+          <option selected>±0</option>
+          <option>+1</option>
+          <option>+2</option>
+        </select>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
