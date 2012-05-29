@@ -64,11 +64,11 @@ html {
 .ratings th:last-child input,
 .ratings td:last-child input,
 .ratings tbody tr:last-child input {
-  display: none;
+  visibility: hidden;
 }
 .ratings th:last-child input[type=text],
 .ratings td:last-child input[type=text],
 .ratings tbody tr:last-child input[type=text] {
-  display: inline;
+  visibility: visible;
   opacity: 0.5;
 }
