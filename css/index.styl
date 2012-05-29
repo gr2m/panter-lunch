@@ -1,1 +1,44 @@
 @import './mixin'
+
+.stack > *:not(.active) {
+  display: none
+}
+
+.ratings
+  table
+    width auto
+  thead th
+    height 150px
+    width 30px
+    position relative
+    
+    span
+      display block
+      position absolute
+      top 50px
+      left -35px
+      -webkit-transform rotate(90deg)
+      -moz-transform rotate(90deg)
+      -ms-transform rotate(90deg)
+      -o-transform rotate(90deg)
+      transform rotate(90deg)
+      zoom 1
+    
+      input
+        width 100px
+        
+  select
+    width 50px
+  
+  tbody th
+    white-space nowrap
+    
+  .new
+    border 0
+    
+    select
+      display none
+      
+    input
+      opacity .5
+    

@@ -1,0 +1,14 @@
+<header class="">
+  <div class="inner">
+    <h1>
+      Choice.it
+      <small>some funky slogan here</small>
+    </h1>
+    
+    <p>Welcome blurb Welcome blurb Welcome blurb Welcome blurb Welcome blurb Welcome blurb </p>
+    
+    <p class="start">
+      <a href="/events/new" class="btn btn-primary btn-large">View project on GitHub</a>
+    </p>
+  </div>
+</header>

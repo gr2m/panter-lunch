@@ -1,0 +1,214 @@
+<header class="">
+
+  <div class="inner">
+    <p><a href="/">&larr; choice.it</a></p>
+    <h1>
+      Event name
+    </h1>
+    
+    <p>Some description here</p>
+  </div>
+</header>
+
+<div class="ratings">
+  <table class="table">
+    <thead>
+      <tr>
+        <th> <!-- corner --> </th>
+        <th>
+          <span><input type="text" name="locations[1][name]" value="Thai" /></span>
+        </th>
+        <th>
+          <span><input type="text" name="locations[2][name]" value="Vietnamese" /></span>
+        </th>
+        <th>
+          <span><input type="text" name="locations[3][name]" value="Italian" /></span>
+        </th>
+        <th class="new">
+          <span><input type="text" name="locations[new][name]" value="" placeholder="new" /></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          <input type="checkbox" name="users[1][is_active]" value="" />
+          <input type="text" name="users[1][email]" value="gregor@martynus.net" />
+        </th>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td class="new">
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <input type="checkbox" name="users[2][is_active]" value="" />
+          <input type="text" name="users[2][email]" value="gregor@martynus.net" />
+        </th>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td class="new">
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <input type="checkbox" name="users[3][is_active]" value="" />
+          <input type="text" name="users[3][email]" value="gregor@martynus.net" />
+        </th>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td class="new">
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+      </tr>
+      <tr class="new">
+        <th>
+          <input type="checkbox" name="users[new][is_active]" value="" />
+          <input type="text" name="users[new][email]" value="gregor@martynus.net" />
+        </th>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+        <td class="new">
+          <select>
+            <option>-2</option>
+            <option>-1</option>
+            <option>±0</option>
+            <option>+1</option>
+            <option>+2</option>
+          </select>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div><!-- /.ratings -->
+
+<footer>
+  <button class="invite btn-primary btn">
+    <i class="icon icon-white icon-ok"></i> decide
+  </button>
+  
+  <button class="invite btn-inverse btn">
+    <i class="icon icon-white icon-envelope"></i> invite
+  </button>
+</footer>
