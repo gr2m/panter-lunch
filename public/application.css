@@ -1,0 +1,74 @@
+html {
+  margin: 50px 0 0;
+}
+.stack > *:not(.active) {
+  display: none;
+}
+.home {
+  text-align: center;
+  width: 550px;
+  margin: 100px auto;
+}
+.home h1 {
+  font-size: 4em;
+}
+.home .welcome-blurb {
+  font-size: 1.8em;
+  line-height: 1.45em;
+  margin: 1em 0;
+}
+.ratings {
+  margin: 50px 0 100px;
+}
+.ratings table {
+  width: auto;
+}
+.ratings thead th {
+  height: 150px;
+  width: 30px;
+  position: relative;
+}
+.ratings thead th span {
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: -35px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  zoom: 1;
+}
+.ratings thead th span input {
+  width: 100px;
+}
+.ratings select {
+  width: 50px;
+}
+.ratings tbody th {
+  white-space: nowrap;
+}
+.ratings th:last-child,
+.ratings td:last-child,
+.ratings tbody tr:last-child {
+  border: 0;
+}
+.ratings th:last-child select,
+.ratings td:last-child select,
+.ratings tbody tr:last-child select,
+.ratings th:last-child input,
+.ratings td:last-child input,
+.ratings tbody tr:last-child input {
+  display: none;
+}
+.ratings th:last-child input[type=text],
+.ratings td:last-child input[type=text],
+.ratings tbody tr:last-child input[type=text] {
+  display: inline;
+  opacity: 0.5;
+}
