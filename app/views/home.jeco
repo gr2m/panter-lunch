@@ -8,7 +8,7 @@
     <p>Welcome blurb Welcome blurb Welcome blurb Welcome blurb Welcome blurb Welcome blurb </p>
     
     <p class="start">
-      <a href="/events/new" class="btn btn-primary btn-large">View project on GitHub</a>
+      <a href="/events/new" class="btn btn-primary btn-large">create new event</a>
     </p>
   </div>
 </header>
