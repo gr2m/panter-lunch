@@ -15,11 +15,12 @@ class Event extends Base
     
   @extend Base.Ajax
   
-  @fromJSON: ->
-    super
-    @users[i] = new User(user) for user, i in @users
-    @locations[i] = new Locatino(location) for location, i in @locations
-    @ratings[i] = new Rating(rating) for rating, i in @ratings
+  @fromJSON: (json)->
+    obj = super
+    obj.users[i] = new User(user) for user, i in json.users
+    obj.locations[i] = new Locatino(location) for location, i in json.locations
+    obj.ratings[i] = new Rating(rating) for rating, i in json.ratings
+    obj
   
   # defaults
   users     : []
