@@ -16,6 +16,7 @@ class App extends Spine.Stack
   routes:
     '/events/:id' : 'event'
     '/'           : 'home'
+    ''            : 'home'
     
   constructor: ->
     
