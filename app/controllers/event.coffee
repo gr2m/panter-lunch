@@ -1,4 +1,8 @@
-BaseController = require('controllers/base')
+BaseController     = require('controllers/base')
+LocationController = require('controllers/location')
+UserController     = require('controllers/user')
+
+
 Event     = require 'models/event'
 User      = require 'models/user'
 Rating    = require 'models/rating'
@@ -21,33 +25,50 @@ class EventController extends BaseController
       @$ratings.html require("views/event/table")(@)
       @model.one 'ajaxSuccess', =>
         @navigate "/events/#{@model.id}", false
-        @$ratings.html require("views/event/table")(@)
+        
+        @model.locations.push new Location
+        @model.users.push new User
+        @render()
         
     else
       @model = new Event id: params.id
       @model.ajax().reload()
       @model.one 'ajaxSuccess', =>
-        @$ratings.html require("views/event/table")(@)
+        
+        @model.locations.push new Location
+        @model.users.push new User
+        @render()
       
     @html require("views/event")(@)
     super
+  
+  render: ->
+    @$ratings.html require("views/event/table")(@)
     
+    for location in @model.locations
+      c = new LocationController event: @model, model: location
+      @$('thead tr').append c.render().el
+      
+    for user in @model.users
+      c = new UserController event: @model, model: user
+      @$('tbody').append c.render().el
+  
   add_new_user: ->
     user = new User
     @model.users.push user
-    @$('tbody tr:last-child').after require("views/event/new_user")(@)
+    c = new UserController event: @model, model: user
+    @$('tbody').append c.render().el
     
   add_new_location: ->
     location = new Location
     @model.locations.push location
-    @$('thead th:last-child').after require("views/event/new_location")(@)
-    @$('tbody td:last-child').after require("views/event/new_rating")(@)
+    # c = new LocationController event: @model, model: location
+    # @$('thead tr').append c.render().el
+    @render()
     
   save: ->
     console.log 'save'
     console.log @model.toJSON()
-    
-    
-    # @model.save_debounced()
+    @model.save_debounced()
     
 module.exports = EventController

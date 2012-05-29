@@ -3,40 +3,12 @@
     <tr>
       <th> <!-- corner --> </th>
       
-      <% for location, i in @model.locations: %>
-      <th>
-        <span><input type="text" name="locations[<%- i %>][name]" value="<%- location.name %>" class="location" /></span>
-      </th>
-      <% end %>
       
-      <%- require('views/event/new_location')(this) %>
     </tr>
   </thead>
   <tbody>
     
-    <% for user, i in @model.users: %>
-    <tr>
-      <th>
-        <input type="checkbox" name="users[1][is_active]" value="1" <%- 'checked' if user.is_active %> />
-        <span><input type="text" name="users[<%- i %>][email]" value="<%- user.email %>" class="user" /></span>
-      </th>
-      <% for location, i in @model.locations: %>
-      <td>
-        <select>
-          <option>-2</option>
-          <option>-1</option>
-          <option selected>±0</option>
-          <option>+1</option>
-          <option>+2</option>
-        </select>
-      </td>
-      <% end %>
-      
-      <%- require('views/event/new_rating')(this) %>
-    </tr>
-    <% end %>
     
-    <%- require('views/event/new_user')(this) %>
 
   </tbody>
 </table>

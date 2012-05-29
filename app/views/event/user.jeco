@@ -1,0 +1,7 @@
+
+  <th>
+    <form>
+      <input type="checkbox" name="is_active" value="1" class="user" checked />
+      <input type="text" name="email" value="" class="user" placeholder="new" />
+    </form>
+  </th>
