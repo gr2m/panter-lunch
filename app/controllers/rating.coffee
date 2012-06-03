@@ -1,10 +1,13 @@
 BaseController = require('controllers/base')
 Rating    = require 'models/rating'
 
-class Rating extends BaseController
+class RatingController extends BaseController
   
   tag: 'td'
   
+  events:
+    'change select': 'save'
+    
   constructor: ->
     super
     
@@ -12,4 +15,9 @@ class Rating extends BaseController
     @html require("views/event/rating")(@)
     this
     
-module.exports = Rating
+  save: ->
+    console.log 'save'
+    x = @model.fromForm( @$ 'form' ).save()
+    console.log JSON.stringify x
+    
+module.exports = RatingController

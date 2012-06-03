@@ -14,9 +14,9 @@ class App extends Spine.Stack
     event : EventController
     
   routes:
-    '/events/:id' : 'event'
-    '/'           : 'home'
-    ''            : 'home'
+    '/events/:uuid' : 'event'
+    '/'             : 'home'
+    ''              : 'home'
     
   constructor: ->
     
@@ -33,8 +33,6 @@ class App extends Spine.Stack
     
     # fixing IE7 bug
     href = href.replace("http://#{document.location.host}", "").replace("https://#{document.location.host}", "") if href
-    
-    
     
     if /^\//.test href
       

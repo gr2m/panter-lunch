@@ -1,7 +1,9 @@
-<select>
-  <option>-2</option>
-  <option>-1</option>
-  <option selected>±0</option>
-  <option>+1</option>
-  <option>+2</option>
+<form>
+<select name="score">
+  <option <%- 'selected' if @model.score is -2 %>>-2</option>
+  <option <%- 'selected' if @model.score is -1 %>>-1</option>
+  <option <%- 'selected' unless @model.score   %>>±0</option>
+  <option <%- 'selected' if @model.score is +1 %>>+1</option>
+  <option <%- 'selected' if @model.score is +2 %>>+2</option>
 </select>
+</form>

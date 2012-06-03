@@ -1,7 +1,8 @@
 BaseController = require('controllers/base')
+
 Location  = require 'models/location'
 
-class Location extends BaseController
+class LocationController extends BaseController
   
   tag: 'th'
   
@@ -16,6 +17,6 @@ class Location extends BaseController
     this
     
   save: ->
-    @model.fromForm( @$ 'form' )
+    @model.fromForm( @$ 'form' ).save()
     
-module.exports = Location
+module.exports = LocationController

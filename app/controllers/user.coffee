@@ -4,7 +4,7 @@ User      = require 'models/user'
 Location  = require 'models/location'
 Rating    = require 'models/rating'
 
-class User extends BaseController
+class UserController extends BaseController
   
   tag: 'tr'
   
@@ -18,18 +18,20 @@ class User extends BaseController
   render: ->
     @html require("views/event/user")(@)
     
-    for location in @event.locations
-      rating = new Rating 
-        location_id: location.id
-        user_id: @model.id
+    for location in @event.locations().all()
+      rating = @model.ratings().findByAttribute 'location_id', location.id      
+      
+      unless rating
+        rating = @event.ratings().create
+          location_id: location.id
+          user_id: @model.id
         
-      c = new RatingController event: @model, model: rating
-      console.log 'c.render().el', c.render().el
+      c = new RatingController event: @event, user: @model, model: rating
       @append c.render().el
       
     this
     
   save: ->
-    @model.fromForm( @$ 'th form' )
+    @model.fromForm( @$ 'th form' ).save()
     
-module.exports = User
+module.exports = UserController

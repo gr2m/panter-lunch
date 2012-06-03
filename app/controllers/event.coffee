@@ -16,27 +16,31 @@ class EventController extends BaseController
   events:
     'keyup tbody tr:last-child input' : 'add_new_user'
     'keyup thead th:last-child input' : 'add_new_location'
-    'keyup input[type=text]': 'save'
-    'change select, input[type=checkbox]': 'save'
+    'keyup input[type=text]': 'save_debounce'
+    'change select, input[type=checkbox]': 'save_debounce'
+  
+  debounce: ['save']
   
   active: (params) ->
-    if params.id is 'new'
-      @model = Event.create()
+    if params.uuid is 'new'
+      @model = Event.create({uuid: Event.uuid()})
       @$ratings.html require("views/event/table")(@)
+      
       @model.one 'ajaxSuccess', =>
-        @navigate "/events/#{@model.id}", false
+        @navigate "/events/#{@model.uuid}", false
         
-        @model.locations.push new Location
-        @model.users.push new User
+        @model.locations().create({})
+        @model.users().create({})
         @render()
         
     else
-      @model = new Event id: params.id
-      @model.ajax().reload()
+      Spine.Ajax.disable =>
+        @model = Event.create uuid: params.uuid
+      @model.ajax().reload url: "#{Event.host}/events/#{@model.uuid}"
       @model.one 'ajaxSuccess', =>
-        
-        @model.locations.push new Location
-        @model.users.push new User
+
+        @model.locations().create {}
+        @model.users().create {}
         @render()
       
     @html require("views/event")(@)
@@ -45,30 +49,26 @@ class EventController extends BaseController
   render: ->
     @$ratings.html require("views/event/table")(@)
     
-    for location in @model.locations
+    for location in @model.locations().all()
       c = new LocationController event: @model, model: location
       @$('thead tr').append c.render().el
       
-    for user in @model.users
+    for user in @model.users().all()
       c = new UserController event: @model, model: user
       @$('tbody').append c.render().el
   
   add_new_user: ->
-    user = new User
-    @model.users.push user
+    user = @model.users().create({})
     c = new UserController event: @model, model: user
     @$('tbody').append c.render().el
     
   add_new_location: ->
-    location = new Location
-    @model.locations.push location
+    location = @model.locations().create {}
     # c = new LocationController event: @model, model: location
     # @$('thead tr').append c.render().el
     @render()
     
   save: ->
-    console.log 'save'
-    console.log @model.toJSON()
-    @model.save_debounced()
+    @model = @model.save()
     
 module.exports = EventController

@@ -1,6 +1,10 @@
 Spine = require('spine')
 
-Spine.Model.host = "http://cors.io/panter-lunch.herokuapp.com"
+if location.port is '9294' # local
+  Spine.Model.host = "http://cors.local:9292/choice.local:3000"
+else
+  Spine.Model.host = "http://cors.io/panter-lunch.herokuapp.com"
+
 class Base extends Spine.Model
   
   @uuid: (len = 7) ->
@@ -9,6 +13,10 @@ class Base extends Spine.Model
     (
       chars[ 0 | Math.random()*radix ] for i in [0...len]
     ).join('')
-  
-  @host: "http://cors.local:9292/choice.local:3000"
+    
+  toJSON: ->
+    json = super
+    delete json.id if @id is @cid
+    json
+    
 module.exports = Base

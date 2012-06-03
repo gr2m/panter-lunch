@@ -1,7 +1,7 @@
 
   <th>
     <form>
-      <input type="checkbox" name="is_active" value="1" class="user" checked />
-      <input type="text" name="email" value="" class="user" placeholder="new" />
+      <input type="checkbox" name="is_active" value="1" class="user" <%- 'checked' if @model.is_active %> />
+      <input type="text" name="email" value="<%- @model.email %>" class="user" placeholder="new" />
     </form>
   </th>
