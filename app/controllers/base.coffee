@@ -10,7 +10,6 @@ class BaseController extends Spine.Controller
   
   _debounce_methods: ->
     for method in @debounce
-      console.log 'debouncing', method
       @["#{method}_debounce"] = $.debounce @[method], 1000
     
 module.exports = BaseController

@@ -51,5 +51,12 @@ class App extends Spine.Stack
     if href is '#'
       event.preventDefault()
 
+
+#
+window.onbeforeunload = ->
+  if Spine.Ajax.pending
+    '''Data is still being sent to the server; 
+       you may lose unsaved changes if you close the page.'''
+       
 module.exports = App
     

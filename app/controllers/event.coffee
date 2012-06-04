@@ -28,47 +28,57 @@ class EventController extends BaseController
       
       @model.one 'ajaxSuccess', =>
         @navigate "/events/#{@model.uuid}", false
-        
-        @model.locations().create({})
-        @model.users().create({})
+
         @render()
         
     else
       Spine.Ajax.disable =>
         @model = Event.create uuid: params.uuid
+        
       @model.ajax().reload url: "#{Event.host}/events/#{@model.uuid}"
-      @model.one 'ajaxSuccess', =>
-
-        @model.locations().create {}
-        @model.users().create {}
-        @render()
+      @model.one 'ajaxSuccess', @render
       
     @html require("views/event")(@)
     super
   
-  render: ->
+  render: =>
     @$ratings.html require("views/event/table")(@)
     
-    for location in @model.locations().all()
-      c = new LocationController event: @model, model: location
-      @$('thead tr').append c.render().el
-      
-    for user in @model.users().all()
+    @render_head()
+    @render_body()
+  
+  render_head: =>  
+     $tr = @$('thead tr')
+     $tr.html '<th><!-- corner --></th>'
+     for location in @model.locations().all()
+       c = new LocationController event: @model, model: location
+       $tr.append c.render().el
+       
+     @add_new_location()
+       
+  render_body: =>
+    $tbody = @$('tbody')
+    $tbody.html ''
+    html = for user in @model.users().all()
       c = new UserController event: @model, model: user
-      @$('tbody').append c.render().el
+      $tbody.append c.render().el
+      
+    @add_new_user()
   
   add_new_user: ->
-    user = @model.users().create({})
+    user = new User event_id: @model.id
     c = new UserController event: @model, model: user
     @$('tbody').append c.render().el
     
   add_new_location: ->
-    location = @model.locations().create {}
-    # c = new LocationController event: @model, model: location
-    # @$('thead tr').append c.render().el
-    @render()
+    location = new Location event_id: @model.id
+    c = new LocationController event: @model, model: location
+    @$('thead tr').append c.render().el
+    
+    location.one 'save', => @render_body()
     
   save: ->
+    console.log 'debounced save'
     @model = @model.save()
     
 module.exports = EventController

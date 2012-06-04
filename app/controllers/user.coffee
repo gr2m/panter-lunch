@@ -10,7 +10,7 @@ class UserController extends BaseController
   
   events:
     'keyup  th input[type=text]':     'save'
-    'change th input[type=checkbox]': 'save'
+    'change th input': 'save'
   
   constructor: ->
     super
@@ -22,12 +22,19 @@ class UserController extends BaseController
       rating = @model.ratings().findByAttribute 'location_id', location.id      
       
       unless rating
-        rating = @event.ratings().create
+        rating = new Rating
           location_id: location.id
           user_id: @model.id
         
       c = new RatingController event: @event, user: @model, model: rating
       @append c.render().el
+    
+    # add new empty one
+    rating = new Rating
+      user_id: @model.id
+
+    c = new RatingController event: @event, user: @model, model: rating
+    @append c.render().el
       
     this
     

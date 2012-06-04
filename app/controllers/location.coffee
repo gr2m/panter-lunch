@@ -7,7 +7,8 @@ class LocationController extends BaseController
   tag: 'th'
   
   events:
-    'keyup input[type=text]': 'save'
+    'keyup  input': 'save'
+    'change input': 'save'
   
   constructor: ->
     super
